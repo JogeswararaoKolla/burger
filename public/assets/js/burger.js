@@ -5,8 +5,7 @@ $(document).ready(function() {
     let id = $(this).attr("id");
     $.ajax("/delete/" + id, {
       type: "DELETE"
-    }).then(function(response) {
-      console.log("Response:" + response);
+    }).then(function() {
       console.log("Deleted Burger at : " + id);
       // Reload the page to get the updated list
       location.reload();

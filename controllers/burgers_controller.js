@@ -29,6 +29,7 @@ router.delete("/delete/:id", function(req, res) {
     } else {
       res.status(200).end();
     }
+    // res.send(data); // To send the Response.
   });
 });
 
