@@ -1,11 +1,33 @@
-{{#each burgers}}
-<div>
-    <p style="display: inline-block" ;>{{this.id}}. {{this.burger_name}}</p>
-    <button class="delete-data" id={{this.id}}>X</button>
+<div class="container">
+    <h1 class="text-center"> Welcome to Eat De Burger App!!</h1>
+    {{#each burgers}}
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <p class="d-inline">{{this.id}}. {{this.burger_name}}</p>
+                    <button type="button" class="delete-data" id={{this.id}}>x</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form class="form-group" action="/create" method="POST">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Fill out yout favourite Burger to EAT</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="burger_name" rows="3"
+                        required></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/assets/js/burger.js"></script>
 </div>
-{{/each}}
-<form action="/create" method="POST">
-    <textarea name="burger_name"></textarea>
-    <input type="submit" value="Submit">
-</form>
-<script src="/assets/js/burger.js"></script>
