@@ -1,25 +1,28 @@
 <div class="container">
     <h1 class="text-center"> Welcome to Eat De Burger App!!</h1>
     {{#each burgers}}
+    {{#unless devoured}}
     <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body text-right">
                     <p class="d-inline">{{this.id}}. {{this.burger_name}}</p>
                     <button type="button" class="delete-data" id={{this.id}}>x</button>
                 </div>
             </div>
         </div>
+        <div class="col-md-2">
+            <button id={{this.id}} class="btn btn-primary devour-data">Devour it</button>
+        </div>
     </div>
+    {{/unless}}
     {{/each}}
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <form class="form-group" action="/create" method="POST">
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Fill out yout favourite Burger to EAT</label>
+                    <label for="exampleFormControlTextarea1"></label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="burger_name" rows="3"
                         required></textarea>
                 </div>
@@ -27,6 +30,7 @@
                     <input class="btn btn-primary" type="submit" value="Submit">
                 </div>
             </form>
+            <p>Enter a burger you wanted to eat ! and click submit button !</p>
         </div>
     </div>
     <script src="/assets/js/burger.js"></script>

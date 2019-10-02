@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.get("/", function(req, res) {
   burger.all(function(data) {
+    console.log(data);
     res.render("index", { burgers: data });
   });
 });
@@ -18,6 +19,14 @@ router.post("/create", function(req, res) {
       res.redirect("/");
     }
   );
+});
+
+router.put("/update/:id", function(req, res) {
+  let condition = "id=" + req.params.id;
+  burger.update({ devoured: true }, condition, function(data) {
+    console.log(data);
+    res.send(data);
+  });
 });
 
 router.delete("/delete/:id", function(req, res) {
