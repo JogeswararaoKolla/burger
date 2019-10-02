@@ -1,22 +1,41 @@
 <div class="container">
-    <h1 class="text-center"> Welcome to Eat De Burger App!!</h1>
+    <h1 class="text-center"> Welcome to Eat Da Burger App!!</h1>
     {{#each burgers}}
     {{#unless devoured}}
     <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body text-right">
-                    <p class="d-inline">{{this.id}}. {{this.burger_name}}</p>
+                    <p contenteditable="true" id={{this.id}} class="insert-data d-inline">
+                        {{this.id}}.{{this.burger_name}}</p>
                     <button type="button" class="delete-data" id={{this.id}}>x</button>
                 </div>
             </div>
         </div>
         <div class="col-md-2">
-            <button id={{this.id}} class="btn btn-primary devour-data">Devour it</button>
+            <button id={{this.id}} class="devour-data btn btn-primary">Devour it</button>
         </div>
     </div>
     {{/unless}}
     {{/each}}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Devoured!</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <li class="list-group-item">{{this.id}}.{{this.burger_name}}</li>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">

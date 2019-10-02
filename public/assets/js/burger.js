@@ -10,6 +10,17 @@ $(document).ready(function() {
     });
   });
 
+  $(".update-data").click(function(event) {
+    console.log($(this).attr("id"));
+    // if we use arrow function it changes the context of ".insert-data" to
+    // ".update-data" context and results in value "e" instead of the burger name
+    $(".insert-data").each(function() {
+      const element = $(this);
+      const elementText = element.text().trim();
+      console.log(elementText);
+    });
+  });
+
   $(".devour-data").click(function(event) {
     console.log(event);
     console.log($(this).attr("id"));
