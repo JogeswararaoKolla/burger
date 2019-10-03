@@ -1,25 +1,26 @@
 <div class="container">
     <h1 class="text-center"> Welcome to Eat Da Burger App!!</h1>
-    {{#each burgers}}
-    {{#unless devoured}}
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-right">
-                    <p contenteditable="true" id={{this.id}} class="insert-data d-inline">
-                        {{this.id}}.{{this.burger_name}}</p>
-                    <button type="button" class="delete-data" id={{this.id}}>x</button>
+        <div class="col-md-6">
+            {{#each burgers}}
+            {{#unless devoured}}
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-body text-right">
+                            <p contenteditable="true" id={{this.id}} class="insert-data d-inline">
+                                {{this.id}}.{{this.burger_name}}</p>
+                            <button type="button" class="delete-data" id={{this.id}}>x</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button id={{this.id}} class="float-right devour-data btn btn-primary">Devour it</button>
                 </div>
             </div>
+            {{/unless}}
+            {{/each}}
         </div>
-        <div class="col-md-2">
-            <button id={{this.id}} class="devour-data btn btn-primary">Devour it</button>
-        </div>
-    </div>
-    {{/unless}}
-    {{/each}}
-
-    <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">Devoured!</div>
