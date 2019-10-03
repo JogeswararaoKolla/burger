@@ -2,11 +2,11 @@ const mysql = require("mysql");
 const path = require("path");
 
 require("dotenv").config();
-
+let connection;
 if (process.env.JAWSDB_URL) {
-  const connection = mysql.createConnection(process.env.JAWSDB_URL);
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-  const connection = mysql.createConnection({
+  connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
